@@ -3,7 +3,14 @@ from fastapi.responses import JSONResponse
 import logging
 import os
 from utils import convert_image_to_base64_and_test, test_with_base64_data
+from fastapi.middleware.cors import CORSMiddleware
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
