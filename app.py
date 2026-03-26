@@ -48,3 +48,9 @@ async def root():
             "disease_detection_file": "/disease-detection-file (POST, file upload)"
         }
     }
+from fastapi.responses import HTMLResponse
+
+@app.get("/", response_class=HTMLResponse)
+def home():
+    with open("index.html") as f:
+        return f.read()
